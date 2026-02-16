@@ -12,6 +12,7 @@ const { marked } = require('marked');
 
 const ROOT = path.resolve(__dirname, '..');
 const POSTS_DIR = path.join(ROOT, '_posts');
+const CONTENT_BLOG_DIR = path.join(ROOT, 'content', 'blog');
 const BLOG_DIR = path.join(ROOT, 'blog');
 const BASE_URL = 'https://www.alfredtravel.io';
 
@@ -199,13 +200,22 @@ if (!fs.existsSync(BLOG_DIR)) {
   console.log('Created blog/');
 }
 
-const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
+// Collect .md from both _posts and content/blog (content moat)
+const postDirs = [POSTS_DIR];
+if (fs.existsSync(CONTENT_BLOG_DIR)) postDirs.push(CONTENT_BLOG_DIR);
+const allFiles = [];
+for (const dir of postDirs) {
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+  for (const file of files) allFiles.push({ dir, file });
+}
 const posts = [];
-for (const file of files) {
+for (const { dir, file } of allFiles) {
   const slug = path.basename(file, '.md');
-  const raw = fs.readFileSync(path.join(POSTS_DIR, file), 'utf8');
+  const raw = fs.readFileSync(path.join(dir, file), 'utf8');
   const parsed = matter(raw);
   const contentHtml = mdToHtml(parsed.content);
+  // Use excerpt as description if description missing (content/blog posts)
+  if (!parsed.data.description && parsed.data.excerpt) parsed.data.description = parsed.data.excerpt;
   posts.push({ slug, data: parsed.data, content: parsed.content, contentHtml });
 }
 
