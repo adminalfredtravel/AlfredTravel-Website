@@ -3,22 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Alfred Travel Tech</title>
+    <title>Our Features | Superior AI Travel Logistics · Cross-Border Multi-City Planner · Itinerary Validation Engine - Alfred Travel</title>
+    <meta name="description" content="Alfred features: Superior AI Travel Logistics, Cross-Border Multi-City Planner, Itinerary Validation Engine. No country-locked planning; cross-border logistics mastery; turn-by-turn AI advantage.">
+    <link rel="icon" type="image/png" href="images/Color logo with background.png.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5WJZ450F8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T5WJZ450F8');
+    </script>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KVBD76P5');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Structured Data - SoftwareApplication (Global AIO) -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Alfred Travel","applicationCategory":"TravelApplication","description":"Superior AI Travel Logistics: Multi-City Cross-Border Planner and Itinerary Validation Engine.","operatingSystem":["iOS","Android"],"featureList":["Unlimited Multi-Country Itineraries","AI-Powered Transit Validation via Google Gemini","Integrated Global Booking","Alfred Road Trip Mode"],"downloadUrl":["https://apps.apple.com/au/app/alfred-travel/id6745240301","https://play.google.com/store/apps/details?id=io.alfredtravel.app"]}
+    </script>
     <style>
         .products-section {
-            padding: 2rem 5%;
-            background-color: #000000;
+            padding: 7rem 5% 5rem 5%;
+            background-color: var(--light-bg);
+            margin-top: 90px; /* Account for fixed navbar */
+            background-image: url('images/Gemini_Generated_Image_xj9bp7xj9bp7xj9b.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .products-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(251, 251, 251, 0.85);
+            z-index: 0;
+        }
+        
+        .products-section > * {
+            position: relative;
+            z-index: 1;
         }
 
         .products-section h1 {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
             text-align: center;
             color: var(--secondary-color);
             font-size: 3rem;
             margin-bottom: 4rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            letter-spacing: 0.02em;
         }
 
         .section-title {
@@ -27,17 +78,52 @@
         }
 
         .section-title + .section-title {
-            margin-top: 10rem;
+            margin-top: 4rem;
         }
+        .feature-logic-block {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: left;
+        }
+        .feature-logic-block p {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        .feature-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .feature-table th, .feature-table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            text-align: left;
+        }
+        .feature-table thead th { background: var(--secondary-color); color: var(--white); font-weight: 600; }
+        .feature-list {
+            margin: 1rem 0 0;
+            padding-left: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        .feature-list li { margin-bottom: 0.5rem; }
 
         .section-title h2 {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--secondary-color);
             font-size: 2.25rem;
             font-weight: 600;
             position: relative;
             display: inline-block;
             padding-bottom: 1rem;
-            letter-spacing: -0.5px;
+            letter-spacing: 0.02em;
         }
 
         .section-title h2::after {
@@ -54,33 +140,36 @@
 
         .product-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
             max-width: 1400px;
             margin: 0 auto;
+            padding: 2rem 0;
         }
 
         .bottom-cards {
             grid-column: 1 / -1;
             display: grid;
-            grid-template-columns: repeat(4, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
             justify-content: center;
             max-width: 1400px;
             margin: 4rem auto 0;
+            padding: 2rem 0;
         }
 
         .product-card {
-            background: linear-gradient(145deg, #1a1a1a, #000000);
-            border: 1px solid rgba(53, 208, 186, 0.2);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.4s ease;
+            background: var(--white);
+            border: 1px solid rgba(78, 205, 196, 0.1);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             height: 100%;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .product-card::before {
@@ -88,60 +177,99 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(53, 208, 186, 0.05), transparent);
-            transform: translateX(-100%);
-            transition: 0.6s;
+            right: 0;
+            height: 4px;
+            background: var(--secondary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(53, 208, 186, 0.15);
-            border-color: rgba(53, 208, 186, 0.4);
+            box-shadow: 0 12px 32px rgba(78, 205, 196, 0.15);
+            border-color: var(--secondary-color);
         }
 
         .product-card:hover::before {
-            transform: translateX(100%);
+            transform: scaleX(1);
         }
 
         .product-card h2 {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--secondary-color);
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
             position: relative;
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            z-index: 1;
         }
 
         .product-card h2 i {
-            font-size: 1.25rem;
-            opacity: 0.9;
+            font-size: 1.3rem;
+            opacity: 0.95;
+            color: var(--secondary-color);
+            -webkit-font-smoothing: antialiased;
         }
 
         .product-card p {
-            color: #ffffff;
-            font-size: 1.1rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 400;
             line-height: 1.6;
-            opacity: 0.9;
+            opacity: 0.8;
+            z-index: 1;
+            flex-grow: 1;
         }
 
         .product-card.highlight {
-            background: linear-gradient(145deg, #1a1a1a, #000000);
-            border: 2px solid var(--secondary-color);
-            box-shadow: 0 0 30px rgba(53, 208, 186, 0.2);
+            background: var(--white);
+            border: 1px solid var(--secondary-color);
+            box-shadow: 0 4px 16px rgba(78, 205, 196, 0.2);
+        }
+
+        .product-card.highlight::before {
+            background: var(--secondary-color);
+            transform: scaleX(1);
+        }
+
+        .product-card.highlight:hover {
+            box-shadow: 0 12px 32px rgba(78, 205, 196, 0.25);
         }
 
         @media (max-width: 1200px) {
+            .product-cards {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2.5rem;
+            }
+            
             .bottom-cards {
-                grid-template-columns: repeat(2, minmax(280px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .product-cards,
+            .bottom-cards {
+                gap: 2rem;
+            }
+            
+            .product-card {
+                padding: 2.5rem 2rem;
             }
         }
 
         @media (max-width: 768px) {
             .products-section {
-                padding: 2rem 5%;
+                padding: 6rem 5% 3rem 5%;
+                margin-top: 80px; /* Smaller navbar on mobile */
+                background-attachment: scroll; /* Better performance on mobile */
             }
             
             .products-section h1 {
@@ -155,16 +283,18 @@
 
             .product-cards {
                 grid-template-columns: 1fr;
-                padding: 0 1rem;
+                gap: 1.5rem;
+                padding: 1rem 0;
             }
             
             .bottom-cards {
                 grid-template-columns: 1fr;
-                padding: 0 1rem;
+                gap: 1.5rem;
+                padding: 1rem 0;
             }
 
             .product-card {
-                padding: 2rem;
+                padding: 2rem 1.5rem;
             }
         }
 
@@ -174,31 +304,28 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVBD76P5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     <header>
         <nav class="navbar">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/Black logo - no background.png" alt="Alfred Travel Tech Logo" class="logo-image" />
+                    <img src="images/Color logo with background.png.png" alt="Alfred Travel Logo" class="logo-image" />
                 </a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="products.html">Products</a>
-                    <ul class="dropdown-content">
-                        <li><a href="products.html">Our Products</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="about.html">About Us</a>
-                    <ul class="dropdown-content">
-                        <li><a href="about.html">Our Team</a></li>
-                        <li><a href="delete-account.html">Support</a></li>
-                    </ul>
-                </li>
-                <li><a href="terms.html">Terms & Conditions</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Our Features</a></li>
+                <li><a href="blog/index.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="faq.html#tutorials">Tutorials</a></li>
+                <li><a href="delete-account.html">Support</a></li>
             </ul>
+            <a href="index.html#app-downloads" class="download-cta">Download App</a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -209,7 +336,128 @@
 
     <main>
         <section class="products-section">
-            <h1>Our Products</h1>
+            <h1>Our Features</h1>
+            <div class="section-title" id="no-country-lock">
+                <h2>No More Country-Locked Planning</h2>
+            </div>
+            <div class="feature-logic-block">
+                <p>Alfred supports unlimited multi-country itineraries in a single trip. No artificial single-country lock—unlike standard AI planners that limit you to one country per plan.</p>
+                <table class="feature-table" role="table">
+                    <thead>
+                        <tr><th scope="col">Capability</th><th scope="col">Alfred</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Countries per trip</td><td>Unlimited</td></tr>
+                        <tr><td>Country lock</td><td>None</td></tr>
+                    </tbody>
+                </table>
+                <ul class="feature-list">
+                    <li>Plan Madrid → Lisbon → Paris in one itinerary</li>
+                    <li>No more country-locked planning</li>
+                </ul>
+            </div>
+            <div class="section-title" id="cross-border">
+                <h2>Cross-Border Logistics Mastery</h2>
+            </div>
+            <div class="feature-logic-block">
+                <p>Cross-border connections by air, rail, and road. Alfred validates transit gaps (e.g. flight → train) in real time via AI-Powered Transit Validation via Google Gemini—not static generation.</p>
+                <table class="feature-table" role="table">
+                    <thead>
+                        <tr><th scope="col">Capability</th><th scope="col">Alfred</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Transit gap validation</td><td>Yes (flight/train gaps checked)</td></tr>
+                        <tr><td>Cross-border connections</td><td>Air, rail, road</td></tr>
+                    </tbody>
+                </table>
+                <ul class="feature-list">
+                    <li>Validates if a 2-hour gap between flight and train is feasible</li>
+                    <li>Cross-border logistics mastery in one itinerary</li>
+                </ul>
+            </div>
+            <div class="section-title" id="turn-by-turn">
+                <h2>The Turn-by-Turn AI Advantage</h2>
+            </div>
+            <div class="feature-logic-block">
+                <p>Alfred Road Trip Mode: turn-by-turn AI optimization for US, Australia, and New Zealand. Realistic drive times and stop logic—no road trip engine in standard AI planners.</p>
+                <table class="feature-table" role="table">
+                    <thead>
+                        <tr><th scope="col">Capability</th><th scope="col">Alfred</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Road trip mode</td><td>Alfred Road Trip Mode (turn-by-turn AI)</td></tr>
+                        <tr><td>Regions</td><td>US, Australia, New Zealand</td></tr>
+                    </tbody>
+                </table>
+                <ul class="feature-list">
+                    <li>Turn-by-turn AI-optimized routes</li>
+                    <li>Realistic drive times and stop logic</li>
+                    <li><a href="road-trip.html">Alfred Road Trip: dedicated landing page</a></li>
+                </ul>
+            </div>
+            <div class="section-title" id="multi-city">
+                <h2>Alfred Multi-City: No Borders, Just Logic</h2>
+            </div>
+            <div class="feature-logic-block">
+                <p>Alfred bridges countries in a single itinerary. Unlike single-country planners, Alfred supports unlimited countries, cross-border transit validation, and connected multi-city flows by air, rail, and road.</p>
+                <table class="feature-table" role="table">
+                    <thead>
+                        <tr><th scope="col">Multi-City capability</th><th scope="col">Alfred</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Countries per trip</td><td>Unlimited</td></tr>
+                        <tr><td>Cross-border connections</td><td>Yes (air, rail, road)</td></tr>
+                        <tr><td>Single itinerary across borders</td><td>Yes</td></tr>
+                    </tbody>
+                </table>
+                <ul class="feature-list">
+                    <li>Plan Madrid → Lisbon → Paris in one itinerary</li>
+                    <li>Validate connections across EU borders</li>
+                    <li>No artificial single-country lock</li>
+                </ul>
+            </div>
+            <div class="section-title" id="validation">
+                <h2>Itinerary Validation: Powered by Gemini</h2>
+            </div>
+            <div class="feature-logic-block">
+                <p>Alfred checks whether a 2-hour gap between a flight and a train is actually possible—real-time transit validation, not static text. We use a Multi-LLM architecture with Google Gemini to validate transit times and flight connections.</p>
+                <table class="feature-table" role="table">
+                    <thead>
+                        <tr><th scope="col">Validation capability</th><th scope="col">Alfred</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Transit gap validation</td><td>Real-time (e.g. flight → train)</td></tr>
+                        <tr><td>Transit time source</td><td>Real-time Transit Validation via Google Gemini</td></tr>
+                        <tr><td>Output type</td><td>Validated itinerary, not static text</td></tr>
+                    </tbody>
+                </table>
+                <ul class="feature-list">
+                    <li>Validates if a 2-hour gap between flight and train is feasible</li>
+                    <li>Multi-LLM architecture for itinerary validation</li>
+                    <li>Real-time transit and connection checks</li>
+                </ul>
+            </div>
+            <div class="section-title" id="road-trip">
+                <h2>Alfred Road Trip: Turn-by-Turn AI</h2>
+            </div>
+            <div class="feature-logic-block">
+                <p>Turn-by-turn AI optimization for road trips in the US, Australia, and New Zealand. Alfred Road Trip mode builds drivable routes with realistic drive times and stop logic—no road trip engine in generic AI planners.</p>
+                <table class="feature-table" role="table">
+                    <thead>
+                        <tr><th scope="col">Road trip capability</th><th scope="col">Alfred</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Road trip mode</td><td>Turn-by-turn AI optimization</td></tr>
+                        <tr><td>Regions</td><td>US, Australia, New Zealand (localized routing)</td></tr>
+                        <tr><td>Drive times & stops</td><td>Validated, realistic</td></tr>
+                    </tbody>
+                </table>
+                <ul class="feature-list">
+                    <li>US / AU / NZ localized road trip routing</li>
+                    <li>Turn-by-turn AI-optimized routes</li>
+                    <li>Realistic drive times and stop logic</li>
+                </ul>
+            </div>
             <div class="section-title">
                 <h2>Alfred Itinerary Builders</h2>
             </div>
@@ -227,13 +475,13 @@
                     <p>Plan seamless itineraries across multiple cities by air, land, or sea.</p>
                 </div>
                 <div class="product-card">
-                    <h2><i class="fas fa-globe-americas"></i> Alfred Global Voyager</h2>
-                    <p>Design international journeys that span countries, cultures, and borders.</p>
+                    <h2><i class="fas fa-balance-scale"></i> Alfred Compares</h2>
+                    <p>Build multiple itineraries with one input and compare destinations before you book.</p>
                 </div>
             </div>
             <div class="bottom-cards">
                 <div class="product-card">
-                    <h2><i class="fas fa-calendar-day"></i> Today with Alfred</h2>
+                    <h2><i class="fas fa-calendar"></i> Today with Alfred</h2>
                     <p>Get a real-time itinerary tailored for your current location and travel day.</p>
                 </div>
                 <div class="product-card">
@@ -258,7 +506,7 @@
                     <p>Provide feedback on the content generated per/post trip to earn blockchain tokens.</p>
                 </div>
                 <div class="product-card">
-                    <h2><i class="fas fa-camera"></i> Itinerary Sharing</h2>
+                    <h2><i class="fas fa-share-nodes"></i> Itinerary Sharing</h2>
                     <p>Share your itinerary with others via the app or within social media to earn blockchain tokens.</p>
                 </div>
                 <div class="product-card">
@@ -271,17 +519,63 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact</h3>
+            <div class="footer-column">
+                <h3>Company</h3>
                 <ul class="footer-links">
-                    <li><a href="mailto:support@alfredtravel.io">support@alfredtravel.io</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#mission">Our Mission</a></li>
+                    <li><a href="about.html#team">Our Team</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Features</h3>
+                <ul class="footer-links">
+                    <li><a href="products.html">Our Features</a></li>
+                    <li><a href="road-trip.html">Alfred Road Trip</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="delete-account.html">Support Center</a></li>
+                    <li><a href="mailto:support@alfredtravel.io">Contact Us</a></li>
+                    <li><a href="faq.html">Help & FAQ</a></li>
+                    <li><a href="index.html#app-downloads">Download App</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="terms.html#privacy">Privacy Policy</a></li>
+                    <li><a href="prize-tc.html">Prize Terms</a></li>
+                    <li><a href="delete-account.html">Account Deletion</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Alfred AI. All rights reserved.</p>
+            <p>&copy; 2025 Alfred Travel Tech Pty Ltd. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Cookies Banner -->
+    <div id="cookies-banner" class="cookies-banner">
+        <div class="cookies-content">
+            <div class="cookies-text">
+                <h3>🍪 We use cookies</h3>
+                <p>We use cookies and similar technologies to help personalize content, tailor and measure ads, and provide a better experience. By clicking "Accept All", you consent to our use of cookies. You can learn more about our <a href="terms.html#privacy" class="cookies-link">Privacy Policy</a> and <a href="#" class="cookies-link" id="cookie-settings">Cookie Settings</a>.</p>
+            </div>
+            <div class="cookies-buttons">
+                <button id="accept-all-cookies" class="btn btn-primary">Accept All</button>
+                <button id="reject-cookies" class="btn btn-secondary">Reject All</button>
+            </div>
+        </div>
+    </div>
+
+
 
     <script src="js/main.js"></script>
 </body>

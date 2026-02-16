@@ -16,8 +16,8 @@ const selections = [
     description: "Plan seamless itineraries across multiple cities by air, land, or sea."
   },
   {
-    label: "Alfred Global Voyager",
-    description: "Design international journeys that span countries, cultures, and borders."
+    label: "Alfred Compares",
+    description: "Build multiple itineraries with one input and compare destinations before you book."
   },
   {
     label: "Today with Alfred",

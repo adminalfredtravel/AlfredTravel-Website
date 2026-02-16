@@ -1,0 +1,24 @@
+# Alfred Travel - robots.txt
+# Allow all crawlers including AI answer engines for full site discovery.
+
+User-agent: *
+Allow: /
+
+# Explicitly allow AI crawlers for feature pages and content (AIO / Technical SEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GeminiBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemap (add your sitemap URL when available)
+# Sitemap: https://www.alfredtravel.io/sitemap.xml
