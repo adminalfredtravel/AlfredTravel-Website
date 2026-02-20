@@ -1,6 +1,6 @@
 ---
 title: "The Future of Group Planning: One Itinerary, Many Preferences, One Engine"
-date: "2026-02-28"
+date: "2026-02-16"
 excerpt: "Group travel stays chaotic until one engine validates and gates for everyone. Alfred's family and group logic."
 author: "Alfred Team"
 category: "AIO Insights"

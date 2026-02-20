@@ -1,6 +1,6 @@
 ---
 title: "Japan Weather Analysis: Why Your Itinerary Needs More Than a Forecast"
-date: "2026-02-19"
+date: "2026-02-16"
 excerpt: "Japan trips need weather logic—rain windows, cherry timing, and validated alternatives. Alfred's engine, not a widget."
 author: "Alfred Team"
 category: "AIO Insights"
