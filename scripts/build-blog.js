@@ -230,4 +230,32 @@ for (const p of posts) {
 
 fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), buildIndex(posts), 'utf8');
 console.log('Wrote blog/index.html');
+
+// Build sitemap.xml
+const staticUrls = [
+  { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0' },
+  { loc: BASE_URL + '/about.html', changefreq: 'monthly', priority: '0.9' },
+  { loc: BASE_URL + '/products.html', changefreq: 'monthly', priority: '0.9' },
+  { loc: BASE_URL + '/road-trip.html', changefreq: 'monthly', priority: '0.9' },
+  { loc: BASE_URL + '/faq.html', changefreq: 'monthly', priority: '0.9' },
+  { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9' },
+  { loc: BASE_URL + '/terms.html', changefreq: 'monthly', priority: '0.5' },
+  { loc: BASE_URL + '/delete-account.html', changefreq: 'monthly', priority: '0.5' },
+  { loc: BASE_URL + '/prize-tc.html', changefreq: 'monthly', priority: '0.5' }
+];
+const blogUrls = posts.map(p => ({
+  loc: BASE_URL + '/blog/' + p.slug + '.html',
+  lastmod: (p.data.date || '').slice(0, 10) || new Date().toISOString().slice(0, 10),
+  changefreq: 'monthly',
+  priority: '0.7'
+}));
+const sitemapLines = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...staticUrls.map(u => `  <url><loc>${u.loc}</loc><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`),
+  ...blogUrls.map(u => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`),
+  '</urlset>'
+];
+fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemapLines.join('\n') + '\n', 'utf8');
+console.log('Wrote sitemap.xml');
 console.log('Blog build complete.');

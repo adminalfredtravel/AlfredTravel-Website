@@ -20,5 +20,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Sitemap (add your sitemap URL when available)
-# Sitemap: https://www.alfredtravel.io/sitemap.xml
+Sitemap: https://www.alfredtravel.io/sitemap.xml
