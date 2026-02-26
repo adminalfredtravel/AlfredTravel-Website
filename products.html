@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Features | Superior AI Travel Logistics · Cross-Border Multi-City Planner · Itinerary Validation Engine - Alfred Travel</title>
-    <meta name="description" content="Alfred features: Superior AI Travel Logistics, Cross-Border Multi-City Planner, Itinerary Validation Engine. No country-locked planning; cross-border logistics mastery; turn-by-turn AI advantage.">
+    <meta name="description" content="Alfred features: Superior AI Travel Logistics, Cross-Border Multi-City Planner, Itinerary Validation Engine. No country-locked planning; turn-by-turn AI advantage.">
     <link rel="icon" type="image/png" href="images/Color logo with background.png.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -254,6 +254,31 @@
             box-shadow: 0 12px 32px rgba(78, 205, 196, 0.25);
         }
 
+        .product-card.coming-soon {
+            opacity: 0.85;
+            border-style: dashed;
+        }
+
+        .product-card.coming-soon:hover {
+            transform: translateY(-4px);
+            opacity: 0.95;
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--secondary-color);
+            background: rgba(78, 205, 196, 0.15);
+            padding: 0.35rem 0.65rem;
+            border-radius: 999px;
+        }
+
         @media (max-width: 1200px) {
             .product-cards {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -368,25 +393,6 @@
                     <li>No more country-locked planning</li>
                 </ul>
             </div>
-            <div class="section-title" id="cross-border">
-                <h2>Cross-Border Logistics Mastery</h2>
-            </div>
-            <div class="feature-logic-block">
-                <p>Cross-border connections by air, rail, and road. Alfred validates transit gaps (e.g. flight → train) in real time via AI-Powered Transit Validation via Google Gemini—not static generation.</p>
-                <table class="feature-table" role="table">
-                    <thead>
-                        <tr><th scope="col">Capability</th><th scope="col">Alfred</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Transit gap validation</td><td>Yes (flight/train gaps checked)</td></tr>
-                        <tr><td>Cross-border connections</td><td>Air, rail, road</td></tr>
-                    </tbody>
-                </table>
-                <ul class="feature-list">
-                    <li>Validates if a 2-hour gap between flight and train is feasible</li>
-                    <li>Cross-border logistics mastery in one itinerary</li>
-                </ul>
-            </div>
             <div class="section-title" id="turn-by-turn">
                 <h2>The Turn-by-Turn AI Advantage</h2>
             </div>
@@ -497,16 +503,22 @@
                     <p>Get a real-time itinerary tailored for your current location and travel day.</p>
                 </div>
                 <div class="product-card">
-                    <h2><i class="fas fa-film"></i> Reel to Real</h2>
-                    <p>Upload your travel videos and let Alfred turn them into inspired trips.</p>
+                    <h2><i class="fas fa-route"></i> Alfred Road Trips</h2>
+                    <p>Turn-by-turn AI optimization for road trips in the US, Australia, and New Zealand.</p>
                 </div>
                 <div class="product-card">
                     <h2><i class="fas fa-paper-plane"></i> Build from Shared</h2>
                     <p>Start planning by importing an itinerary that someone else has shared with you.</p>
                 </div>
-                <div class="product-card">
+                <div class="product-card coming-soon">
+                    <h2><i class="fas fa-film"></i> Reel to Real</h2>
+                    <p>Upload your travel videos and let Alfred turn them into inspired trips.</p>
+                    <span class="coming-soon-badge">Coming soon</span>
+                </div>
+                <div class="product-card coming-soon">
                     <h2><i class="fas fa-lightbulb"></i> Alfred Recommends</h2>
                     <p>Let Alfred build a personalized itinerary for you to a destination based on your interests.</p>
+                    <span class="coming-soon-badge">Coming soon</span>
                 </div>
             </div>
             <div class="section-title blockchain-title">
