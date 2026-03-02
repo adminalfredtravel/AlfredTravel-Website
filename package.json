@@ -4,7 +4,11 @@
   "description": "Alfred Travel - #1 Logistical AI Travel Planner",
   "scripts": {
     "build:blog": "node scripts/build-blog.js",
-    "blog": "node scripts/build-blog.js"
+    "blog": "node scripts/build-blog.js",
+    "build:itineraries": "node scripts/build-itineraries.js",
+    "itineraries": "node scripts/build-itineraries.js",
+    "build:compare": "node scripts/build-compare.js",
+    "compare": "node scripts/build-compare.js"
   },
   "keywords": [],
   "author": "Alfred Travel Tech Pty Ltd",

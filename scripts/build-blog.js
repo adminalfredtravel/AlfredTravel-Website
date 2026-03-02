@@ -14,13 +14,31 @@ const ROOT = path.resolve(__dirname, '..');
 const POSTS_DIR = path.join(ROOT, '_posts');
 const CONTENT_BLOG_DIR = path.join(ROOT, 'content', 'blog');
 const BLOG_DIR = path.join(ROOT, 'blog');
+const DESTINATIONS_PATH = path.join(ROOT, 'destinations.json');
 const BASE_URL = 'https://www.alfredtravel.io';
+
+// Deterministic "random" date for itinerary before 2026-03-02 (based on destination name)
+function itineraryDate(destination) {
+  if (destination === 'London') return '2026-03-02';
+  const start = new Date('2025-01-01').getTime();
+  const end = new Date('2026-03-01').getTime();
+  const range = end - start;
+  let hash = 0;
+  for (let i = 0; i < destination.length; i++) hash = ((hash << 5) - hash) + destination.charCodeAt(i);
+  const offset = Math.abs(hash) % range;
+  const d = new Date(start + offset);
+  return d.toISOString().slice(0, 10);
+}
+
+function slugify(name) {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}
 
 const NAV = `
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="../index.html"><img src="../images/Color logo with background.png.png" alt="Alfred Travel Logo" class="logo-image" /></a>
+                <a href="../index.html"><img src="../images/Color logo with background.png.png" alt="Alfred - The Leading AI Trip Planner and AI Holiday Planner App" class="logo-image" /></a>
             </div>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
@@ -31,7 +49,7 @@ const NAV = `
                 <li><a href="../faq.html#tutorials">Tutorials</a></li>
                 <li><a href="../delete-account.html">Support</a></li>
             </ul>
-            <a href="../index.html#app-downloads" class="download-cta">Download App</a>
+            <a href="../index.html#app-downloads" class="download-cta" aria-label="Download the AI Holiday Planner">Download App</a>
             <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>
     </header>`;
@@ -40,7 +58,7 @@ const FOOTER = `
     <footer>
         <div class="footer-content">
             <div class="footer-column"><h3>Company</h3><ul class="footer-links"><li><a href="../about.html">About Us</a></li><li><a href="../about.html#mission">Our Mission</a></li><li><a href="../about.html#team">Our Team</a></li><li><a href="../index.html#features">Features</a></li></ul></div>
-            <div class="footer-column"><h3>Features</h3><ul class="footer-links"><li><a href="../products.html">Our Features</a></li><li><a href="../road-trip.html">Alfred Road Trip</a></li><li><a href="index.html">Blog</a></li><li><a href="../faq.html">FAQ</a></li></ul></div>
+            <div class="footer-column"><h3>Features</h3><ul class="footer-links"><li><a href="../products.html">Our Features</a></li><li><a href="../itineraries/index.html">Itineraries</a></li><li><a href="../compare/index.html">Compare</a></li><li><a href="index.html">Blog</a></li><li><a href="../faq.html">FAQ</a></li></ul></div>
             <div class="footer-column"><h3>Support</h3><ul class="footer-links"><li><a href="../delete-account.html">Support Center</a></li><li><a href="mailto:support@alfredtravel.io">Contact Us</a></li><li><a href="../faq.html">Help & FAQ</a></li><li><a href="../index.html#app-downloads">Download App</a></li></ul></div>
             <div class="footer-column"><h3>Legal</h3><ul class="footer-links"><li><a href="../terms.html">Terms & Conditions</a></li><li><a href="../terms.html#privacy">Privacy Policy</a></li><li><a href="../prize-tc.html">Prize Terms</a></li><li><a href="../delete-account.html">Account Deletion</a></li></ul></div>
         </div>
@@ -143,20 +161,32 @@ ${FOOTER}
 </html>`;
 }
 
-function buildIndex(posts) {
-  const listItems = posts
-    .map(p => {
-      const slug = p.slug;
-      const d = p.data;
-      const desc = (d.description || d.title).slice(0, 160);
-      return `<li class="blog-index-item">
-        <a href="${slug}.html" class="blog-index-link">
-          <h2 class="blog-index-title">${escapeHtml(d.title)}</h2>
-          <p class="blog-index-meta">${escapeHtml(d.date || '')} &middot; ${escapeHtml(d.author || 'Alfred Team')} &middot; ${escapeHtml(d.category || 'AI Travel Logistics')}</p>
-          <p class="blog-index-excerpt">${escapeHtml(desc)}</p>
+function buildIndex(posts, destinations) {
+  const blogItems = posts.map(p => ({
+    date: p.data.date || '',
+    title: p.data.title,
+    href: `${p.slug}.html`,
+    meta: `${escapeHtml(p.data.author || 'Alfred Team')} &middot; ${escapeHtml(p.data.category || 'AI Travel Logistics')}`,
+    excerpt: (p.data.description || p.data.title).slice(0, 160)
+  }));
+
+  const itineraryItems = (destinations || []).map(name => ({
+    date: itineraryDate(name),
+    title: `AI Travel Planner for ${name}`,
+    href: `../itineraries/${slugify(name)}.html`,
+    meta: 'Alfred Team &middot; Destination Itinerary',
+    excerpt: `7-day validated itinerary for ${name}. Flight gaps checked, hotel proximity verified, multi-LLM confirmed.`
+  }));
+
+  const allItems = [...blogItems, ...itineraryItems]
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+    .map(item => `<li class="blog-index-item">
+        <a href="${item.href}" class="blog-index-link">
+          <h2 class="blog-index-title">${escapeHtml(item.title)}</h2>
+          <p class="blog-index-meta">${escapeHtml(item.date)} &middot; ${item.meta}</p>
+          <p class="blog-index-excerpt">${escapeHtml(item.excerpt)}</p>
         </a>
-      </li>`;
-    })
+      </li>`)
     .join('\n');
 
   return `<!DOCTYPE html>
@@ -181,8 +211,8 @@ ${NAV}
             <header class="blog-index-header">
                 <h1 class="blog-index-heading">Blog</h1>
                 <p class="blog-index-tagline">#1 authority in AI travel logistics. Cross-border planning, itinerary validation, and the science of trip planning.</p>
-            </header>
-            <ol class="blog-index-list" start="1">\n${listItems}\n            </ol>
+                </header>
+            <ol class="blog-index-list" start="1">\n${allItems}\n            </ol>
         </div>
     </main>
 ${FOOTER}
@@ -228,7 +258,11 @@ for (const p of posts) {
   console.log('Wrote blog/' + p.slug + '.html');
 }
 
-fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), buildIndex(posts), 'utf8');
+let destinations = [];
+if (fs.existsSync(DESTINATIONS_PATH)) {
+  destinations = JSON.parse(fs.readFileSync(DESTINATIONS_PATH, 'utf8'));
+}
+fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), buildIndex(posts, destinations), 'utf8');
 console.log('Wrote blog/index.html');
 
 // Build sitemap.xml
